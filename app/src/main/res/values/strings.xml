@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Homify</string>
+    <string name="ct_btn_1">Élelmiszer</string>
+    <string name="ct_btn_2">Háztartás</string>
+    <string name="ct_btn_3">Takarító szerek</string>
+    <string name="ct_btn_4">Higiénia</string>
+    <string name="recipe_btn">Receptek</string>
+    <string name="settings_btn">Beállítások</string>
+    <string name="shopping_list_btn">Bevásárló lista</string>
+    <string name="title">Név</string>
+    <string name="category">Kategória</string>
+    <string name="quantity">Mennyiség</string>
+    <string name="unit">Mértékegység</string>
+    <string name="last_edit">Szerkesztés</string>
+    <string name="add_new_item">Hozzáadás</string>
+    <string name="add_item">Új elem hozzáadása</string>
+    <string name="cancel">Mégsem</string>
+    <string name="save">Mentés</string>
+</resources>
