@@ -17,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(view);
 
         binding.ct1Btn.setOnClickListener(v->{
-            Intent intent = new Intent(MainActivity.this, CategoryFoodActivity.class);
+            Intent intent = new Intent(MainActivity.this, ChooseCategoryFromFood.class);
             startActivity(intent);
         });
 

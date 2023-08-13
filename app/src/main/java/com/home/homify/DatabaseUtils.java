@@ -3,8 +3,11 @@ package com.home.homify;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.graphics.drawable.Drawable;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -13,8 +16,10 @@ import android.widget.TableRow;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
+import androidx.core.content.ContextCompat;
 
 public class DatabaseUtils {
 
@@ -226,10 +231,12 @@ public class DatabaseUtils {
      * @see #showEditPopup(Context, String, String)
      * @see #deleteData(Context, String, String, String)
      */
-    public static void populateTableLayout(Context context, TableLayout tableLayout, String table) {
+    public static void populateTableLayout(Context context, TableLayout tableLayout, String table, String category) {
         DatabaseHelper dbHelper = new DatabaseHelper(context);
         SQLiteDatabase db = dbHelper.getWritableDatabase();
-        Cursor cursor = db.query(table, null, null, null, null, null, null);
+        String selection = "_category = ?";
+        String[] selectionArgs = {category};
+        Cursor cursor = db.query(table, null, selection, selectionArgs, null, null, "_item_name");
 
         if (cursor.moveToFirst()) {
             do {
@@ -241,7 +248,7 @@ public class DatabaseUtils {
 
                 TextView itemNameTextView = new TextView(context);
                 itemNameTextView.setText(itemName);
-                itemNameTextView.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+                itemNameTextView.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 2f));
 
                 TextView quantityTextView = new TextView(context);
                 quantityTextView.setText(quantity);
@@ -252,9 +259,15 @@ public class DatabaseUtils {
                 unitTextView.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
 
                 Button editButton = new Button(context);
-                editButton.setText("Edit");
+                //editButton.setText("Edit");
                 editButton.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
                 editButton.setTag(itemName);
+                int color = ContextCompat.getColor(context, R.color.pink_light);
+                editButton.setBackgroundTintList(ColorStateList.valueOf(color));
+                editButton.setBackgroundResource(R.drawable.outline_edit_24);
+                editButton.setWidth(30);
+                editButton.setHeight(30);
+
 
                 editButton.setOnClickListener(v -> {
                     String itemName1 = (String) v.getTag();
@@ -262,9 +275,14 @@ public class DatabaseUtils {
                 });
 
                 Button deleteButton = new Button(context);
-                deleteButton.setText("Del");
+                //deleteButton.setText("Del");
                 deleteButton.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
                 deleteButton.setTag(itemName);
+                color = ContextCompat.getColor(context, R.color.black);
+                deleteButton.setBackgroundTintList(ColorStateList.valueOf(color));
+                deleteButton.setBackgroundResource(R.drawable.outline_delete_24);
+                deleteButton.setHeight(30);
+                deleteButton.setWidth(30);
 
                 deleteButton.setOnClickListener(v -> {
                     String itemName1 = (String) v.getTag();
@@ -283,4 +301,5 @@ public class DatabaseUtils {
         cursor.close();
         db.close();
     }
+
 }

@@ -1,5 +1,6 @@
 package com.home.homify;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TableLayout;
@@ -17,6 +18,11 @@ public class CategoryFoodActivity extends AppCompatActivity {
         setContentView(view);
 
         TableLayout tableLayout = findViewById(R.id.tableLayout);
-        DatabaseUtils.populateTableLayout(this, tableLayout, "food");
+        DatabaseUtils.populateTableLayout(this, tableLayout, "food", "Élelmiszer");
+
+        binding.addNewItemButton.setOnClickListener(v-> {
+            Intent intent = new Intent(CategoryFoodActivity.this, AddItemActivity.class);
+            startActivity(intent);
+        });
     }
 }
