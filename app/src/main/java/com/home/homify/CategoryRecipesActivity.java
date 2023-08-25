@@ -14,5 +14,17 @@ public class CategoryRecipesActivity extends AppCompatActivity {
         binding = ActivityRecipesBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+        binding.allRecipes.setOnClickListener(v-> {
+
+        });
+
+        binding.addNewRecipe.setOnClickListener(v-> {
+
+        });
+
+        binding.addNewBtn.setOnClickListener(v-> {
+
+        });
     }
 }

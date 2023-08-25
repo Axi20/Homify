@@ -5,27 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <SearchView
-        android:id="@+id/searchView"
-        android:layout_width="227dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="18dp"
-        android:layout_marginEnd="16dp"
-        android:background="@drawable/search_border"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/ct_5_page_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
         android:text="@string/recipe_btn"
         android:textSize="25sp"
-        app:layout_constraintEnd_toStartOf="@+id/searchView"
-        app:layout_constraintHorizontal_bias="0.531"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        tools:layout_editor_absoluteX="153dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -34,42 +21,76 @@
         android:orientation="horizontal"
         app:layout_constraintGuide_begin="51dp" />
 
-    <ScrollView
-        android:layout_width="374dp"
-        android:layout_height="555dp"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.486"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/searchView"
-        app:layout_constraintVertical_bias="0.317"></ScrollView>
+    <Button
+        android:id="@+id/add_new_btn"
+        android:layout_width="56dp"
+        android:layout_height="53dp"
+        android:background="@drawable/baseline_add_circle_24"
+        tools:layout_editor_absoluteX="18dp"
+        tools:layout_editor_absoluteY="644dp" />
+
+    <View
+        android:id="@+id/view"
+        android:layout_width="395dp"
+        android:layout_height="652dp"
+        tools:layout_editor_absoluteX="3dp"
+        tools:layout_editor_absoluteY="63dp" />
 
     <LinearLayout
-        android:layout_width="372dp"
-        android:layout_height="65dp"
-        android:layout_marginBottom="16dp"
+        android:id="@+id/all_recipes"
+        android:layout_width="379dp"
+        android:layout_height="111dp"
+        android:background="@drawable/cv_border"
         android:orientation="horizontal"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent">
+        android:paddingEnd="10sp"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="73dp">
 
-        <Button
-            android:id="@+id/add_new_btn"
-            android:layout_width="56dp"
-            android:layout_height="53dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginEnd="10dp"
-            android:background="@drawable/baseline_add_circle_24" />
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="18dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/recipes" />
 
         <TextView
-            android:id="@+id/add_new_item"
+            android:id="@+id/textView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="10dp"
-            android:text="@string/add_new_item"
-            android:textSize="18sp" />
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="@string/recipe_btn" />
     </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/add_new_recipe"
+        android:layout_width="380dp"
+        android:layout_height="111dp"
+        android:paddingEnd="10sp"
+        android:orientation="horizontal"
+        android:background="@drawable/cv_border"
+        tools:layout_editor_absoluteX="15dp"
+        tools:layout_editor_absoluteY="219dp">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="19dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/recipes" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textSize="20sp"
+            android:gravity="center"
+            android:text="@string/add_new_item" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
