@@ -29,6 +29,12 @@
         <activity android:name=".SettingsActivity"/>
         <activity android:name=".ShoppingListActivity"/>
         <activity android:name=".AddItemActivity"/>
+        <activity android:name=".ChooseCategoryFromFood"/>
+        <activity android:name=".CategoryCooking"/>
+        <activity android:name=".CategoryFruitsVegetables"/>
+        <activity android:name=".CategorySpices"/>
+        <activity android:name=".CategorySweets"/>
+
     </application>
 
 </manifest>

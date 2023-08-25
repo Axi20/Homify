@@ -16,4 +16,11 @@
     <string name="add_item">Új elem hozzáadása</string>
     <string name="cancel">Mégsem</string>
     <string name="save">Mentés</string>
+
+    <string name="ct_btn_6">Édességek</string>
+    <string name="ct_btn_7">Zöldség/gyümölcs</string>
+    <string name="ct_btn_8">Sütés/főzés</string>
+    <string name="ct_btn_9">Fűszerek</string>
+
+
 </resources>

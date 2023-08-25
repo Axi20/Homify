@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
     android:background="@color/dark">
 
     <LinearLayout
@@ -33,7 +32,7 @@
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_marginEnd="30dp"
-            android:text="@string/ct_btn_2" />
+            android:text="@string/ct_btn_6" />
     </LinearLayout>
 
     <LinearLayout
@@ -48,25 +47,16 @@
         app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
 
         <Button
-            android:id="@+id/recipes_btn"
+            android:id="@+id/ct_5_btn"
             style="@style/HomepageButtonStyle"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:text="@string/recipe_btn"
+            android:text="@string/ct_btn_9"
             tools:layout_editor_absoluteX="41dp"
             tools:layout_editor_absoluteY="100dp" />
 
-        <Button
-            android:id="@+id/settings_btn"
-            style="@style/HomepageButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_marginEnd="30dp"
-            android:text="@string/settings_btn"
-            tools:layout_editor_absoluteX="219dp"
-            tools:layout_editor_absoluteY="109dp" />
     </LinearLayout>
 
     <LinearLayout
@@ -88,7 +78,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:padding="10dp"
-            android:text="@string/ct_btn_3"
+            android:text="@string/ct_btn_7"
             tools:layout_editor_absoluteX="41dp"
             tools:layout_editor_absoluteY="100dp" />
 
@@ -98,7 +88,7 @@
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_marginEnd="30dp"
-            android:text="@string/ct_btn_4"
+            android:text="@string/ct_btn_8"
             tools:layout_editor_absoluteX="219dp"
             tools:layout_editor_absoluteY="109dp" />
     </LinearLayout>
@@ -112,28 +102,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-        <Button
-            android:id="@+id/shopping_list_btn"
-            style="@style/HomepageButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:padding="10dp"
-            android:text="@string/shopping_list_btn" />
-
-        <Button
-            android:id="@+id/add_new_item_btn"
-            style="@style/HomepageButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_marginEnd="30dp"
-            android:text="@string/add_item"
-            tools:layout_editor_absoluteX="219dp"
-            tools:layout_editor_absoluteY="109dp" />
-    </LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
