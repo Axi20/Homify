@@ -2,6 +2,7 @@ package com.home.homify;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import com.home.homify.databinding.ActivityMainBinding;
@@ -15,6 +16,10 @@ public class MainActivity extends AppCompatActivity {
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         View view = binding.getRoot();
         setContentView(view);
+
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db.close();
 
         binding.ct1Btn.setOnClickListener(v->{
             Intent intent = new Intent(MainActivity.this, ChooseCategoryFromFood.class);

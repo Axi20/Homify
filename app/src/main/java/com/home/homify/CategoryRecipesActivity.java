@@ -1,5 +1,6 @@
 package com.home.homify;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,15 +17,18 @@ public class CategoryRecipesActivity extends AppCompatActivity {
         setContentView(view);
 
         binding.allRecipes.setOnClickListener(v-> {
-
+            Intent intent = new Intent(CategoryRecipesActivity.this, ChooseCategoryFromRecipes.class);
+            startActivity(intent);
         });
 
         binding.addNewRecipe.setOnClickListener(v-> {
-
+            Intent intent = new Intent(CategoryRecipesActivity.this, AddRecipesActivity.class);
+            startActivity(intent);
         });
 
         binding.addNewBtn.setOnClickListener(v-> {
-
+            Intent intent = new Intent(CategoryRecipesActivity.this, AddItemActivity.class);
+            startActivity(intent);
         });
     }
 }
