@@ -3,8 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@color/dark">
+    android:layout_height="match_parent">
 
     <TextView
         android:id="@+id/food_page_title"
@@ -12,7 +11,6 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="@string/ct_btn_1"
-        android:textColor="@color/white"
         android:textSize="25sp"
         app:layout_constraintBottom_toTopOf="@+id/guideline"
         app:layout_constraintEnd_toEndOf="parent"

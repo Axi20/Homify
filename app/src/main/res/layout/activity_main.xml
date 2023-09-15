@@ -1,139 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/dark">
+    android:layout_margin="20dp">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="363dp"
+        android:layout_height="94dp"
+        android:layout_marginBottom="20dp"
         android:gravity="center"
-        android:orientation="horizontal"
+        android:text="@string/homepage_intro"
+        android:textSize="28sp"
+        app:layout_constraintBottom_toTopOf="@+id/imageView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="201dp"
+        android:layout_height="297dp"
+        android:layout_marginBottom="28dp"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout7"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <Button
-            android:id="@+id/ct_1_btn"
-            style="@style/HomepageButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:text="@string/ct_btn_1" />
-
-        <Button
-            android:id="@+id/ct_2_btn"
-            style="@style/HomepageButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_marginEnd="30dp"
-            android:text="@string/ct_btn_2" />
-    </LinearLayout>
+        app:srcCompat="@drawable/homepage_image" />
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:gravity="center"
-        android:orientation="horizontal"
+        android:id="@+id/linearLayout7"
+        android:layout_width="wrap_content"
+        android:layout_height="230dp"
+        android:layout_marginBottom="28dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintStart_toStartOf="parent">
 
         <Button
-            android:id="@+id/recipes_btn"
-            style="@style/HomepageButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:text="@string/recipe_btn"
-            tools:layout_editor_absoluteX="41dp"
-            tools:layout_editor_absoluteY="100dp" />
+            android:id="@+id/inventory_button"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_corner_background"
+            android:text="@string/homepage_inventory" />
 
         <Button
-            android:id="@+id/settings_btn"
-            style="@style/HomepageButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_marginEnd="30dp"
-            android:text="@string/settings_btn"
-            tools:layout_editor_absoluteX="219dp"
-            tools:layout_editor_absoluteY="109dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+            android:id="@+id/recipes_button"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_corner_background"
+            android:text="@string/recipe_btn" />
 
         <Button
-            android:id="@+id/ct_3_btn"
-            style="@style/HomepageButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:padding="10dp"
-            android:text="@string/ct_btn_3"
-            tools:layout_editor_absoluteX="41dp"
-            tools:layout_editor_absoluteY="100dp" />
-
-        <Button
-            android:id="@+id/ct_4_btn"
-            style="@style/HomepageButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_marginEnd="30dp"
-            android:text="@string/ct_btn_4"
-            tools:layout_editor_absoluteX="219dp"
-            tools:layout_editor_absoluteY="109dp" />
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
-
-        <Button
-            android:id="@+id/shopping_list_btn"
-            style="@style/HomepageButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:padding="10dp"
+            android:id="@+id/shopping_list_button"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_corner_background"
             android:text="@string/shopping_list_btn" />
 
         <Button
-            android:id="@+id/add_new_item_btn"
-            style="@style/HomepageButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_marginEnd="30dp"
-            android:text="@string/add_item"
-            tools:layout_editor_absoluteX="219dp"
-            tools:layout_editor_absoluteY="109dp" />
+            android:id="@+id/settings_button"
+            android:layout_width="290dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:background="@drawable/rounded_corner_background"
+            android:text="@string/settings_btn" />
     </LinearLayout>
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>

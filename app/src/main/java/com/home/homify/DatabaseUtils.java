@@ -8,9 +8,12 @@ import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.graphics.drawable.Drawable;
+import android.text.TextUtils;
+import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -20,6 +23,8 @@ import androidx.annotation.ColorInt;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
+
+import java.util.ArrayList;
 
 public class DatabaseUtils {
 
@@ -157,9 +162,9 @@ public class DatabaseUtils {
         editUnit.setHint("Mértékegység");
         layout.addView(editUnit);
 
-        Button addToList = new Button(context);
-        addToList.setId(R.id.shopping_list_btn);
-        addToList.setBackgroundResource(R.drawable.baseline_add_shopping_cart_24);
+        //Button addToList = new Button(context);
+        //addToList.setId(R.id.shopping_list_btn);
+        //addToList.setBackgroundResource(R.drawable.baseline_add_shopping_cart_24);
 
         int desiredWidthInPixels = 100;
         int desiredHeightInPixels = 100;
@@ -170,8 +175,8 @@ public class DatabaseUtils {
                 desiredHeightInPixels
         );
         params.setMargins(0, 50, 0, 0);
-        addToList.setLayoutParams(params);
-        layout.addView(addToList);
+        //addToList.setLayoutParams(params);
+        //layout.addView(addToList);
 
         String[] columns = {"_id", "_item_name", "_quantity", "_unit"};
         String selection = "_item_name = ?";
@@ -300,6 +305,105 @@ public class DatabaseUtils {
         }
         cursor.close();
         db.close();
+    }
+
+    /**
+     * Saves a new recipe to the specified table in the database.
+     *
+     * @param context      The application context.
+     * @param itemName     The name of the recipe.
+     * @param table        The name of the database table to insert the recipe into.
+     * @param cooking_time The cooking time for the recipe.
+     * @param servings     The number of servings the recipe yields.
+     * @param category     The category of the recipe.
+     * @param ingredients  An array of ingredients for the recipe.
+     * @param method       The cooking method or instructions for the recipe.
+     * @param image_path   The file path to the recipe's image.
+     */
+    public static void saveRecipesToTheTable(Context context, String itemName, String table, String cooking_time, String servings, String category, String[] ingredients, String method, String image_path) {
+        DatabaseHelper dbHelper = new DatabaseHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        boolean itemExists = checkIfItemExists(db, table, itemName);
+
+        if (itemExists) {
+            Toast.makeText(context, "Az elem már létezik az adatbázisban!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        ContentValues values = new ContentValues();
+        values.put("_item_name", itemName);
+        values.put("cooking_time", cooking_time);
+        values.put("servings", servings);
+        values.put("_category", category);
+
+
+        // Convert ingredients array to a comma-separated string
+        String ingredientsString = TextUtils.join(", ", ingredients);
+        values.put("ingredients", ingredientsString);
+
+        values.put("method", method);
+        values.put("image_path", image_path);
+
+        long rowId = db.insert(table, null, values);
+
+        if (rowId != -1) {
+            Toast.makeText(context, "Sikeres hozzáadás!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Hiba történt!", Toast.LENGTH_SHORT).show();
+        }
+        db.close();
+    }
+
+    /**
+     * Loads recipes of a specific category from the database and populates them into a ListView.
+     *
+     * @param category       The category of recipes to load.
+     * @param context        The application context.
+     * @param recipeListView The ListView where the recipes will be displayed.
+     */
+    public static void loadRecipesByCategory(String category, Context context, ListView recipeListView) {
+        ArrayList<RecipeItem> recipeList;
+        RecipeListAdapter adapter;
+        recipeList = new ArrayList<>();
+
+        adapter = new RecipeListAdapter(context, recipeList);
+        recipeListView.setAdapter(adapter);
+
+        DatabaseHelper dbHelper = new DatabaseHelper(context);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        String[] projection = {
+                DatabaseHelper.COLUMN_IMAGE_PATH,
+                DatabaseHelper.COLUMN_ITEM_NAME
+        };
+
+        String selection = DatabaseHelper.COLUMN_CATEGORY + " = ?";
+        String[] selectionArgs = { category };
+
+        Cursor cursor = db.query(
+                DatabaseHelper.TABLE_RECIPES,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
+        );
+
+        while (cursor.moveToNext()) {
+            String imagePath = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_IMAGE_PATH));
+            String recipeName = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_ITEM_NAME));
+            recipeList.add(new RecipeItem(imagePath, recipeName));
+        }
+
+        cursor.close();
+        db.close();
+
+
+        adapter.notifyDataSetChanged();
+        Log.d("RecipesListActivity", "Category: " + category);
+        Log.d("RecipesListActivity", "Number of recipes: " + recipeList.size());
+
     }
 
 }

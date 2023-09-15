@@ -21,27 +21,27 @@ public class ChooseCategoryFromFood extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        binding.ct1Btn.setOnClickListener(v->{
+        binding.foodCategory.setOnClickListener(v->{
             Intent intent = new Intent(ChooseCategoryFromFood.this, CategoryFoodActivity.class);
             startActivity(intent);
         });
 
-        binding.ct2Btn.setOnClickListener(v->{
+        binding.categorySweets.setOnClickListener(v->{
             Intent intent = new Intent(ChooseCategoryFromFood.this, CategorySweets.class);
             startActivity(intent);
         });
 
-        binding.ct3Btn.setOnClickListener(v->{
+        binding.categoryFruits.setOnClickListener(v->{
             Intent intent = new Intent(ChooseCategoryFromFood.this, CategoryFruitsVegetables.class);
             startActivity(intent);
         });
 
-        binding.ct4Btn.setOnClickListener(v->{
+        binding.categoryCooking.setOnClickListener(v->{
             Intent intent = new Intent(ChooseCategoryFromFood.this, CategoryCooking.class);
             startActivity(intent);
         });
 
-        binding.ct5Btn.setOnClickListener(v->{
+        binding.categorySpices.setOnClickListener(v->{
             Intent intent = new Intent(ChooseCategoryFromFood.this, CategorySpices.class);
             startActivity(intent);
         });

@@ -2,6 +2,7 @@ package com.home.homify;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import com.home.homify.databinding.ActivityMainBinding;
@@ -16,43 +17,27 @@ public class MainActivity extends AppCompatActivity {
         View view = binding.getRoot();
         setContentView(view);
 
-        binding.ct1Btn.setOnClickListener(v->{
-            Intent intent = new Intent(MainActivity.this, ChooseCategoryFromFood.class);
+        DatabaseHelper dbHelper = new DatabaseHelper(this);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        db.close();
+
+        binding.inventoryButton.setOnClickListener(v->{
+            Intent intent = new Intent(MainActivity.this, ChooseFromInventory.class);
             startActivity(intent);
         });
 
-        binding.ct2Btn.setOnClickListener(v->{
-            Intent intent = new Intent(MainActivity.this, CategoryHomeActivity.class);
-            startActivity(intent);
-        });
-
-        binding.ct3Btn.setOnClickListener(v->{
-            Intent intent = new Intent(MainActivity.this, CategoryCleaningActivity.class);
-            startActivity(intent);
-        });
-
-        binding.ct4Btn.setOnClickListener(v->{
-            Intent intent = new Intent(MainActivity.this, CategoryHygieneActivity.class);
-            startActivity(intent);
-        });
-
-        binding.recipesBtn.setOnClickListener(v->{
+        binding.recipesButton.setOnClickListener(v->{
             Intent intent = new Intent(MainActivity.this, CategoryRecipesActivity.class);
             startActivity(intent);
         });
 
-        binding.settingsBtn.setOnClickListener(v->{
-            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
-            startActivity(intent);
-        });
-
-        binding.shoppingListBtn.setOnClickListener(v->{
+        binding.shoppingListButton.setOnClickListener(v->{
             Intent intent = new Intent(MainActivity.this, ShoppingListActivity.class);
             startActivity(intent);
         });
 
-        binding.addNewItemBtn.setOnClickListener(v->{
-            Intent intent = new Intent(MainActivity.this, AddItemActivity.class);
+        binding.settingsButton.setOnClickListener(v->{
+            Intent intent = new Intent(MainActivity.this, SettingsActivity.class);
             startActivity(intent);
         });
     }
