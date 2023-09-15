@@ -21,6 +21,11 @@ public class MainActivity extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         db.close();
 
+        binding.ct1Btn.setOnClickListener(v->{
+            Intent intent = new Intent(MainActivity.this, ChooseCategoryFromFood.class);
+            startActivity(intent);
+        });
+
         binding.inventoryButton.setOnClickListener(v->{
             Intent intent = new Intent(MainActivity.this, ChooseFromInventory.class);
             startActivity(intent);
