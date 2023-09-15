@@ -21,6 +21,32 @@
     <string name="ct_btn_7">Zöldség/gyümölcs</string>
     <string name="ct_btn_8">Sütés/főzés</string>
     <string name="ct_btn_9">Fűszerek</string>
+    <string name="category_hint">Kategória</string>
+    <string name="category_dessert">Desszert</string>
+    <string name="category_cooked_food">Főtt étel</string>
+    <string name="category_regular_food">Hideg étel</string>
+    <string name="category_roast_food">Sültek</string>
+    <string name="category_soup">Levesek</string>
+    <string name="category_chicken_food">Csirke</string>
+    <string name="category_pork_food">Sertés</string>
+    <string name="category_main_dishes">Főétel</string>
+    <string name="add_recipe_title">Recept hozzáadása</string>
+    <string name="add_recipe_name">Recept neve</string>
+    <string name="add_recipe_cook_time">Elkészítési idő</string>
+    <string name="add_recipe_servings">Adag</string>
+    <string name="add_recipe_ingredients">Hozzávalók</string>
+    <string name="add_recipe_cooking">Elkészítési mód</string>
+    <string name="food_with_chicken">Csirkéből készült ételek</string>
+    <string name="food_with_pork">Sertéshúsból készült ételek</string>
 
+    <string-array name="category_array">
+        <item>Főétel</item>
+        <item>Leves</item>
+        <item>Desszert</item>
+        <item>Csirke</item>
+        <item>Sertés</item>
+        <item>Hideg ételek</item>
+        <item>Sültek</item>
+    </string-array>
 
 </resources>

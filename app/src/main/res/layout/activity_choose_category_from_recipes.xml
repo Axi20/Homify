@@ -6,6 +6,37 @@
     android:layout_height="match_parent">
 
     <LinearLayout
+        android:id="@+id/linearLayout_1"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp"
+        android:gravity="center"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_2">
+
+        <Button
+            android:id="@+id/ct_5_btn"
+            style="@style/HomepageButtonStyle"
+            android:layout_width="150dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/category_soup"
+            android:textColor="@color/dark" />
+
+        <Button
+            android:id="@+id/ct_6_btn"
+            style="@style/HomepageButtonStyle"
+            android:layout_width="150dp"
+            android:layout_height="120dp"
+            android:layout_marginEnd="30dp"
+            android:text="@string/category_chicken_food"
+            android:textColor="@color/dark" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/linearLayout"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
@@ -19,50 +50,25 @@
         <Button
             android:id="@+id/ct_1_btn"
             style="@style/HomepageButtonStyle"
-            android:textColor="@color/dark"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:text="@string/ct_btn_1" />
+            android:text="@string/category_main_dishes"
+            android:textColor="@color/dark" />
 
         <Button
             android:id="@+id/ct_2_btn"
             style="@style/HomepageButtonStyle"
-            android:textColor="@color/dark"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_marginEnd="30dp"
-            android:text="@string/ct_btn_6" />
+            android:text="@string/category_dessert"
+            android:textColor="@color/dark" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
-
-        <Button
-            android:id="@+id/ct_5_btn"
-            style="@style/HomepageButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:textColor="@color/dark"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:text="@string/ct_btn_9"
-            tools:layout_editor_absoluteX="41dp"
-            tools:layout_editor_absoluteY="100dp" />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/linearLayout3"
+        android:id="@+id/linearLayout_2"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="23dp"
@@ -78,10 +84,10 @@
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_marginStart="20dp"
-            android:textColor="@color/dark"
             android:layout_marginEnd="20dp"
             android:padding="10dp"
-            android:text="@string/ct_btn_7"
+            android:text="@string/category_regular_food"
+            android:textColor="@color/dark"
             tools:layout_editor_absoluteX="41dp"
             tools:layout_editor_absoluteY="100dp" />
 
@@ -89,24 +95,35 @@
             android:id="@+id/ct_4_btn"
             style="@style/HomepageButtonStyle"
             android:layout_width="150dp"
-            android:textColor="@color/dark"
             android:layout_height="120dp"
             android:layout_marginEnd="30dp"
-            android:text="@string/ct_btn_8"
+            android:text="@string/category_roast_food"
+            android:textColor="@color/dark"
             tools:layout_editor_absoluteX="219dp"
             tools:layout_editor_absoluteY="109dp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout4"
+        android:id="@+id/linearLayout_4"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
+        android:layout_marginTop="21dp"
         android:gravity="center"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"/>
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout_1">
 
+        <Button
+            android:id="@+id/ct_7_btn"
+            style="@style/HomepageButtonStyle"
+            android:layout_width="150dp"
+            android:layout_height="120dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:text="@string/category_pork_food"
+            android:textColor="@color/dark" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity"
-    android:background="@color/dark">
+    tools:context=".MainActivity">
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -21,6 +20,7 @@
         <Button
             android:id="@+id/ct_1_btn"
             style="@style/HomepageButtonStyle"
+            android:textColor="@color/dark"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_marginStart="20dp"
@@ -29,6 +29,7 @@
 
         <Button
             android:id="@+id/ct_2_btn"
+            android:textColor="@color/dark"
             style="@style/HomepageButtonStyle"
             android:layout_width="150dp"
             android:layout_height="120dp"
@@ -50,6 +51,7 @@
         <Button
             android:id="@+id/recipes_btn"
             style="@style/HomepageButtonStyle"
+            android:textColor="@color/dark"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_marginStart="20dp"
@@ -61,6 +63,7 @@
         <Button
             android:id="@+id/settings_btn"
             style="@style/HomepageButtonStyle"
+            android:textColor="@color/dark"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_marginEnd="30dp"
@@ -83,6 +86,7 @@
         <Button
             android:id="@+id/ct_3_btn"
             style="@style/HomepageButtonStyle"
+            android:textColor="@color/dark"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_marginStart="20dp"
@@ -95,6 +99,7 @@
         <Button
             android:id="@+id/ct_4_btn"
             style="@style/HomepageButtonStyle"
+            android:textColor="@color/dark"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_marginEnd="30dp"
@@ -117,6 +122,7 @@
         <Button
             android:id="@+id/shopping_list_btn"
             style="@style/HomepageButtonStyle"
+            android:textColor="@color/dark"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_marginStart="20dp"
@@ -127,6 +133,7 @@
         <Button
             android:id="@+id/add_new_item_btn"
             style="@style/HomepageButtonStyle"
+            android:textColor="@color/dark"
             android:layout_width="150dp"
             android:layout_height="120dp"
             android:layout_marginEnd="30dp"
@@ -134,6 +141,5 @@
             tools:layout_editor_absoluteX="219dp"
             tools:layout_editor_absoluteY="109dp" />
     </LinearLayout>
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>
