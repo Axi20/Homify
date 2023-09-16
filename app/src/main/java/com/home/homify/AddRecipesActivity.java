@@ -20,6 +20,7 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.home.homify.databinding.ActivityAddRecipeBinding;
+import com.home.homify.databinding.ActivityRecipesBinding;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -119,6 +120,9 @@ public class AddRecipesActivity extends AppCompatActivity {
             image_path = getPathFromUri(selectedImageUri);
 
             DatabaseUtils.saveRecipesToTheTable(this, itemName, "recipes", cookingTime, servings, selectedCategory, ingredients, method, relativeImagePath);
+
+            Intent intent = new Intent(AddRecipesActivity.this, CategoryRecipesActivity.class);
+            startActivity(intent);
         });
 
         binding.itemCancelButton.setOnClickListener(v->{

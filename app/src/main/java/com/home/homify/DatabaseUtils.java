@@ -11,6 +11,7 @@ import android.graphics.drawable.Drawable;
 import android.text.TextUtils;
 import android.util.Log;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
@@ -162,6 +163,11 @@ public class DatabaseUtils {
         editUnit.setHint("Mértékegység");
         layout.addView(editUnit);
 
+        // Create a CheckBox
+        CheckBox checkBox = new CheckBox(context);
+        checkBox.setText(R.string.add_to_the_shopping_list);
+        layout.addView(checkBox);
+
         //Button addToList = new Button(context);
         //addToList.setId(R.id.shopping_list_btn);
         //addToList.setBackgroundResource(R.drawable.baseline_add_shopping_cart_24);
@@ -201,6 +207,8 @@ public class DatabaseUtils {
         }
         builder.setView(layout);
 
+
+
         builder.setPositiveButton("Mentés", (dialog, which) -> {
             ContentValues values = new ContentValues();
             int itemId = cursor.getInt(cursor.getColumnIndexOrThrow("_id"));
@@ -212,6 +220,10 @@ public class DatabaseUtils {
 
             Toast.makeText(context, (rowsUpdated > 0) ? "Elem frissítve!" :
                     "Hiba történt!", Toast.LENGTH_SHORT).show();
+
+            if (checkBox.isChecked()){
+                addToShoppingList(context, editItemName.getText().toString(), editQuantity.getText().toString(), editUnit.getText().toString(), "shopping");
+            }
 
             cursor.close();
             db.close();
@@ -405,5 +417,161 @@ public class DatabaseUtils {
         Log.d("RecipesListActivity", "Number of recipes: " + recipeList.size());
 
     }
+
+    public static void showAddToShoppingListPopup(Context context, String table) {
+        // Create and configure the popup window
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Hozzáadás");
+
+        LinearLayout layout = new LinearLayout(context);
+        layout.setOrientation(LinearLayout.VERTICAL);
+        layout.setPadding(32, 32, 32, 32);
+
+        EditText editItemName = new EditText(context);
+        editItemName.setHint("Név");
+        layout.addView(editItemName);
+
+        EditText editQuantity = new EditText(context);
+        editQuantity.setHint("Mennyiség");
+        layout.addView(editQuantity);
+
+        EditText editUnit = new EditText(context);
+        editUnit.setHint("Mértékegység");
+        layout.addView(editUnit);
+
+        builder.setView(layout);
+
+        builder.setPositiveButton("Hozzáadás", (dialog, which) -> {
+            String itemName = editItemName.getText().toString();
+            String quantity = editQuantity.getText().toString();
+            String unit = editUnit.getText().toString();
+
+            if (!itemName.isEmpty() && !quantity.isEmpty() && !unit.isEmpty()) {
+                // Add the data to the shopping table
+                addToShoppingList(context, itemName, quantity, unit, table);
+
+                // Refresh the activity
+                Activity activity = (Activity) context;
+                activity.recreate();
+            } else {
+                Toast.makeText(context, "A mezők kitöltése kötelező", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        builder.setNegativeButton("Mégsem", (dialog, which) -> {
+            dialog.dismiss();
+        });
+
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private static void addToShoppingList(Context context, String itemName, String quantity, String unit, String table) {
+        long rowId;
+        DatabaseHelper dbHelper = new DatabaseHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        ContentValues values = new ContentValues();
+        values.put("_item_name", itemName);
+        values.put("_quantity", quantity);
+        values.put("_unit", unit);
+
+        boolean itemExists = checkIfItemExists(db, table, itemName);
+
+        if (itemExists) {
+            Toast.makeText(context, "Az elem már létezik az adatbázisban!", Toast.LENGTH_SHORT).show();
+            return;
+        }
+        else {
+            rowId = db.insert(table, null, values);
+        }
+
+        if (rowId != -1) {
+            Toast.makeText(context, "Sikeres hozzáadás!", Toast.LENGTH_SHORT).show();
+        } else {
+            Toast.makeText(context, "Hiba történt!", Toast.LENGTH_SHORT).show();
+        }
+
+        db.close();
+    }
+
+    /**
+     * Populates the TableLayout with data retrieved from a specified database table.
+     *
+     * @param context     The application or activity context.
+     * @param tableLayout The TableLayout to populate with data.
+     * @param table       The name of the database table to retrieve data from.
+     * @see #showEditPopup(Context, String, String)
+     * @see #deleteData(Context, String, String, String)
+     */
+    public static void populateShoppingPageLayout(Context context, TableLayout tableLayout, String table) {
+        DatabaseHelper dbHelper = new DatabaseHelper(context);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+        Cursor cursor = db.query(table, null, null, null, null, null, "_item_name");
+
+        if (cursor.moveToFirst()) {
+            do {
+                String itemName = cursor.getString(cursor.getColumnIndexOrThrow("_item_name"));
+                String quantity = cursor.getString(cursor.getColumnIndexOrThrow("_quantity"));
+                String unit = cursor.getString(cursor.getColumnIndexOrThrow("_unit"));
+
+                TableRow tableRow = new TableRow(context);
+
+                TextView itemNameTextView = new TextView(context);
+                itemNameTextView.setText(itemName);
+                itemNameTextView.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 2f));
+
+                TextView quantityTextView = new TextView(context);
+                quantityTextView.setText(quantity);
+                quantityTextView.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+
+                TextView unitTextView = new TextView(context);
+                unitTextView.setText(unit);
+                unitTextView.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+
+                Button editButton = new Button(context);
+                //editButton.setText("Edit");
+                editButton.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+                editButton.setTag(itemName);
+                int color = ContextCompat.getColor(context, R.color.pink_light);
+                editButton.setBackgroundTintList(ColorStateList.valueOf(color));
+                editButton.setBackgroundResource(R.drawable.outline_edit_24);
+                editButton.setWidth(30);
+                editButton.setHeight(30);
+
+
+                editButton.setOnClickListener(v -> {
+                    String itemName1 = (String) v.getTag();
+                    DatabaseUtils.showEditPopup(context, itemName1, table);
+                });
+
+                Button deleteButton = new Button(context);
+                //deleteButton.setText("Del");
+                deleteButton.setLayoutParams(new TableRow.LayoutParams(0, TableRow.LayoutParams.WRAP_CONTENT, 1f));
+                deleteButton.setTag(itemName);
+                color = ContextCompat.getColor(context, R.color.black);
+                deleteButton.setBackgroundTintList(ColorStateList.valueOf(color));
+                deleteButton.setBackgroundResource(R.drawable.outline_delete_24);
+                deleteButton.setHeight(30);
+                deleteButton.setWidth(30);
+
+                deleteButton.setOnClickListener(v -> {
+                    String itemName1 = (String) v.getTag();
+                    DatabaseUtils.deleteData(context, table, "_item_name = ?", itemName1);
+                });
+
+                tableRow.addView(itemNameTextView);
+                tableRow.addView(quantityTextView);
+                tableRow.addView(unitTextView);
+                tableRow.addView(editButton);
+                tableRow.addView(deleteButton);
+                tableLayout.addView(tableRow);
+
+            } while (cursor.moveToNext());
+        }
+        cursor.close();
+        db.close();
+    }
+
 
 }

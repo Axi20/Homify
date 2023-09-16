@@ -16,6 +16,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_HYGIENE = "hygiene";
     public static final String TABLE_RECIPES = "recipes";
 
+    private static final String TABLE_SHOPPING = "shopping";
+
     // Common column names.
     private static final String COLUMN_ID = "_id";
     public static final String COLUMN_ITEM_NAME = "_item_name";
@@ -58,6 +60,16 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.execSQL(createTableQuery);
     }
 
+    public void createShoppingListTable(SQLiteDatabase db) {
+        String createTableQuery = "CREATE TABLE " + TABLE_SHOPPING + "("
+                + COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT,"
+                + COLUMN_ITEM_NAME + " TEXT,"
+                + COLUMN_QUANTITY + " TEXT,"
+                + COLUMN_UNIT + " TEXT"
+                + ")";
+        db.execSQL(createTableQuery);
+    }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         createTable(db,TABLE_FOOD);
@@ -65,6 +77,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         createTable(db, TABLE_CLEANING);
         createTable(db, TABLE_HYGIENE);
         createRecipesTable(db);
+        createShoppingListTable(db);
     }
 
     @Override

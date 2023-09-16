@@ -40,6 +40,7 @@
     <string name="food_with_pork">Sertéshúsból készült ételek</string>
     <string name="homepage_inventory">Leltár</string>
     <string name="homepage_intro">Üdvözöllek!\nKérlek válassz menüpontot!</string>
+    <string name="add_to_the_shopping_list">Bevásárló listához adás</string>
 
     <string-array name="category_array">
         <item>Főétel</item>

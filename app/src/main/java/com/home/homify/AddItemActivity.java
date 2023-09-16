@@ -93,13 +93,13 @@ public class AddItemActivity extends AppCompatActivity {
                         DatabaseUtils.saveDataToTheTable(this, "hygiene", itemName, category, quantity, unit);
                         break;
                 }
-                Intent intent = new Intent(AddItemActivity.this, MainActivity.class);
+                Intent intent = new Intent(AddItemActivity.this, ChooseFromInventory.class);
                 startActivity(intent);
             }
         });
 
         binding.itemCancelButton.setOnClickListener(v-> {
-            Intent intent = new Intent(AddItemActivity.this, MainActivity.class);
+            Intent intent = new Intent(AddItemActivity.this, ChooseFromInventory.class);
             startActivity(intent);
         });
     }

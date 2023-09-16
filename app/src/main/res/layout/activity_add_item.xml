@@ -110,9 +110,9 @@
 
     <Button
         android:id="@+id/item_cancel_button"
-        android:layout_width="160dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="26dp"
+        android:layout_marginStart="20dp"
         android:layout_marginBottom="72dp"
         android:background="@drawable/cancel_button"
         android:text="@string/cancel"
@@ -122,11 +122,10 @@
 
     <Button
         android:id="@+id/item_save_button"
-        android:layout_width="160dp"
-        android:layout_marginEnd="30dp"
-        android:layout_marginStart="10dp"
+        android:layout_width="140dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"
+        android:layout_marginEnd="10dp"
         android:background="@drawable/save_button"
         android:text="@string/save"
         android:textColor="@color/black"

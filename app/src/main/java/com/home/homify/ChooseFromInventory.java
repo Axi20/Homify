@@ -38,5 +38,10 @@ public class ChooseFromInventory extends AppCompatActivity {
             Intent intent = new Intent(ChooseFromInventory.this, CategoryHygieneActivity.class);
             startActivity(intent);
         });
+
+        binding.addNewItemButton.setOnClickListener(v->{
+            Intent intent = new Intent(ChooseFromInventory.this, AddItemActivity.class);
+            startActivity(intent);
+        });
     }
 }

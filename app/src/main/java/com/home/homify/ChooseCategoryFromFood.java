@@ -45,5 +45,10 @@ public class ChooseCategoryFromFood extends AppCompatActivity {
             Intent intent = new Intent(ChooseCategoryFromFood.this, CategorySpices.class);
             startActivity(intent);
         });
+
+        binding.addNewItemButton.setOnClickListener(v->{
+            Intent intent = new Intent(ChooseCategoryFromFood.this, AddItemActivity.class);
+            startActivity(intent);
+        });
     }
 }

@@ -32,7 +32,10 @@
         android:paddingStart="20dp"
         android:paddingEnd="20dp"
         app:layout_constraintBottom_toTopOf="@+id/add_new_item_button"
-        tools:layout_editor_absoluteX="25dp">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.976">
 
         <TableLayout
             android:id="@+id/tableLayout"
