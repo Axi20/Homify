@@ -19,6 +19,8 @@ public class CategoryMainDishes extends AppCompatActivity {
         setContentView(view);
 
         ListView recipeListView = findViewById(R.id.recipeListView);
-        DatabaseUtils.loadRecipesByCategory("Főétel", this, recipeListView);
+        DatabaseUtils.loadRecipesByCategory(R.string.category_main_dishes, this, recipeListView);
+
+
     }
 }

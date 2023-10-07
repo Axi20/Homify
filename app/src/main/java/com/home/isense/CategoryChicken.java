@@ -19,6 +19,6 @@ public class CategoryChicken extends AppCompatActivity {
         setContentView(view);
 
         ListView recipeListView = findViewById(R.id.recipeListView);
-        DatabaseUtils.loadRecipesByCategory("Csirke", this, recipeListView);
+        DatabaseUtils.loadRecipesByCategory(R.string.category_chicken_food, this, recipeListView);
     }
 }

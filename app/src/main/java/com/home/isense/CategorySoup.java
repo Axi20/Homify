@@ -19,6 +19,6 @@ public class CategorySoup extends AppCompatActivity {
         setContentView(view);
 
         ListView recipeListView = findViewById(R.id.recipeListView);
-        DatabaseUtils.loadRecipesByCategory("Leves", this, recipeListView);
+        DatabaseUtils.loadRecipesByCategory(R.string.category_soup, this, recipeListView);
     }
 }

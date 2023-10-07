@@ -1,5 +1,6 @@
 package com.home.isense;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.view.View;
 
@@ -8,21 +9,19 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.home.isense.databinding.ActivityItemRecipeBinding;
 import com.home.isense.databinding.ActivityMainDishesBinding;
 
-public class RecipeItem extends AppCompatActivity {
-    private ActivityItemRecipeBinding binding;
-    private final String recipeName;
-    private final String imagePath;
+public class RecipeItem {
+    private int recipeId;
+    private String recipeName;
+    private String imagePath;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        binding = ActivityItemRecipeBinding.inflate(getLayoutInflater());
-        View view = binding.getRoot();
-        setContentView(view);
-    }
-    public RecipeItem(String imagePath, String recipeName) {
+    public RecipeItem(int recipeId, String imagePath, String recipeName) {
+        this.recipeId = recipeId;
         this.imagePath = imagePath;
         this.recipeName = recipeName;
+    }
+
+    public int getRecipeId() {
+        return recipeId;
     }
 
     public String getRecipeName() {
@@ -32,9 +31,9 @@ public class RecipeItem extends AppCompatActivity {
     public String getImagePath() {
         return imagePath;
     }
-    public void viewRecipe(View v) {
-
-    }
 
 }
+
+
+
 

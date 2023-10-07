@@ -19,6 +19,6 @@ public class CategoryPork extends AppCompatActivity {
         setContentView(view);
 
         ListView recipeListView = findViewById(R.id.recipeListView);
-        DatabaseUtils.loadRecipesByCategory("Sertés", this, recipeListView);
+        DatabaseUtils.loadRecipesByCategory(R.string.category_pork_food, this, recipeListView);
     }
 }

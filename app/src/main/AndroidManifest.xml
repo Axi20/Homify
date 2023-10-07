@@ -57,6 +57,7 @@
         <activity android:name=".CategoryDesserts"/>
         <activity android:name=".CategoryMainDishes"/>
         <activity android:name=".ChooseFromInventory"/>
+        <activity android:name=".RecipeDetailsActivity"/>
     </application>
 
 </manifest>

@@ -19,6 +19,6 @@ public class CategoryRoastFood extends AppCompatActivity {
         setContentView(view);
 
         ListView recipeListView = findViewById(R.id.recipeListView);
-        DatabaseUtils.loadRecipesByCategory("Sültek", this, recipeListView);
+        DatabaseUtils.loadRecipesByCategory(R.string.category_roast_food, this, recipeListView);
     }
 }

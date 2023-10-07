@@ -19,6 +19,6 @@ public class CategoryDesserts extends AppCompatActivity {
         setContentView(view);
 
         ListView recipeListView = findViewById(R.id.recipeListView);
-        DatabaseUtils.loadRecipesByCategory("Desszert", this, recipeListView);
+        DatabaseUtils.loadRecipesByCategory(R.string.category_dessert, this, recipeListView);
     }
 }

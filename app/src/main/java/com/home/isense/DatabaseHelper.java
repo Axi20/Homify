@@ -17,17 +17,17 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String TABLE_SHOPPING = "shopping";
 
     // Common column names.
-    private static final String COLUMN_ID = "_id";
+    public static final String COLUMN_ID = "_id";
     public static final String COLUMN_ITEM_NAME = "_item_name";
     public static final String COLUMN_CATEGORY = "_category";
     private static final String COLUMN_QUANTITY = "_quantity";
     private static final String COLUMN_UNIT = "_unit";
 
     // Recipes table column names
-    private static final String COLUMN_COOKING_TIME = "cooking_time";
-    private static final String COLUMN_SERVINGS = "servings";
-    private static final String COLUMN_INGREDIENTS = "ingredients";
-    private static final String COLUMN_METHOD = "method";
+    public static final String COLUMN_COOKING_TIME = "cooking_time";
+    public static final String COLUMN_SERVINGS = "servings";
+    public static final String COLUMN_INGREDIENTS = "ingredients";
+    public static final String COLUMN_METHOD = "method";
     public static final String COLUMN_IMAGE_PATH = "image_path";
 
     public DatabaseHelper(Context context) {

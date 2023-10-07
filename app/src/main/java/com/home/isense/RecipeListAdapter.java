@@ -36,14 +36,20 @@ public class RecipeListAdapter extends ArrayAdapter<RecipeItem> {
         // Set the recipe name
         recipeName.setText(currentRecipe.getRecipeName());
 
-
         // Load and set the image using the image path
         String imagePath = currentRecipe.getImagePath();
         String absoluteImagePath = getContext().getFilesDir() + "/" + currentRecipe.getImagePath();
         Bitmap bitmap = BitmapFactory.decodeFile(absoluteImagePath);
-
-        //Bitmap bitmap = BitmapFactory.decodeFile(imagePath);
         recipeImage.setImageBitmap(bitmap);
+
+        // Set an OnClickListener to open the recipe detail
+        convertView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // Call the viewRecipe function with the clicked recipe ID and context
+                DatabaseUtils.viewRecipe(currentRecipe.getRecipeName(), getContext());
+            }
+        });
 
         return convertView;
     }

@@ -3,6 +3,7 @@ package com.home.isense;
 import android.app.Activity;
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.ColorStateList;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -21,6 +22,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.core.content.ContextCompat;
+
 
 import java.util.ArrayList;
 
@@ -366,11 +368,11 @@ public class DatabaseUtils {
     /**
      * Loads recipes of a specific category from the database and populates them into a ListView.
      *
-     * @param category       The category of recipes to load.
+     * @param categoryResourceId  The category resource id of recipes to load.
      * @param context        The application context.
      * @param recipeListView The ListView where the recipes will be displayed.
      */
-    public static void loadRecipesByCategory(String category, Context context, ListView recipeListView) {
+    public static void loadRecipesByCategory(int categoryResourceId, Context context, ListView recipeListView) {
         ArrayList<RecipeItem> recipeList;
         RecipeListAdapter adapter;
         recipeList = new ArrayList<>();
@@ -381,13 +383,17 @@ public class DatabaseUtils {
         DatabaseHelper dbHelper = new DatabaseHelper(context);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
 
+        // Get the category string value from the resource identifier
+        String category = context.getString(categoryResourceId);
+
         String[] projection = {
+                DatabaseHelper.COLUMN_ID,
                 DatabaseHelper.COLUMN_IMAGE_PATH,
                 DatabaseHelper.COLUMN_ITEM_NAME
         };
 
         String selection = DatabaseHelper.COLUMN_CATEGORY + " = ?";
-        String[] selectionArgs = { category };
+        String[] selectionArgs = {category};
 
         Cursor cursor = db.query(
                 DatabaseHelper.TABLE_RECIPES,
@@ -400,9 +406,10 @@ public class DatabaseUtils {
         );
 
         while (cursor.moveToNext()) {
+            int recipeId = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_ID));
             String imagePath = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_IMAGE_PATH));
             String recipeName = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_ITEM_NAME));
-            recipeList.add(new RecipeItem(imagePath, recipeName));
+            recipeList.add(new RecipeItem(recipeId,imagePath, recipeName));
         }
 
         cursor.close();
@@ -570,5 +577,92 @@ public class DatabaseUtils {
         db.close();
     }
 
+    public static int getRecipeIdFromDatabase(String clickedRecipe, Context context) {
+        // Default value indicating no match found
+        int recipeId = -1;
 
+        // Open a readable database
+        DatabaseHelper dbHelper = new DatabaseHelper(context);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        String[] projection = {DatabaseHelper.COLUMN_ID};
+
+        String selection = DatabaseHelper.COLUMN_ITEM_NAME + " = ?";
+        String[] selectionArgs = {clickedRecipe};
+
+        Cursor cursor = db.query(
+                DatabaseHelper.TABLE_RECIPES,
+                projection,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
+        );
+
+        // Check if a matching record was found
+        if (cursor.moveToFirst()) {
+            recipeId = cursor.getInt(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_ID));
+        }
+
+        cursor.close();
+        db.close();
+
+        return recipeId;
+    }
+
+    public static void viewRecipe(String clickedRecipe, Context context) {
+        DatabaseHelper dbHelper = new DatabaseHelper(context);
+        SQLiteDatabase db = dbHelper.getReadableDatabase();
+
+        // Retrieve recipe data from the database using recipeId
+        int recipeId = getRecipeIdFromDatabase(clickedRecipe, context);
+
+        String recipeName = "";
+        String imagePath = "";
+        String cookingTime = "";
+        String servings = "";
+        String category = "";
+        String ingredients = "";
+        String cookingMethod = "";
+
+        String selection = DatabaseHelper.COLUMN_ID + " = ?";
+        String[] selectionArgs = {String.valueOf(recipeId)};
+
+        Cursor cursor = db.query(
+                DatabaseHelper.TABLE_RECIPES,
+                null,
+                selection,
+                selectionArgs,
+                null,
+                null,
+                null
+        );
+
+        while (cursor.moveToNext()) {
+            imagePath = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_IMAGE_PATH));
+            recipeName = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_ITEM_NAME));
+            cookingTime = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_COOKING_TIME));
+            servings = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_SERVINGS));
+            category = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_CATEGORY));
+            ingredients = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_INGREDIENTS));
+            cookingMethod = cursor.getString(cursor.getColumnIndexOrThrow(DatabaseHelper.COLUMN_METHOD));
+        }
+
+        // Display the generated layout
+        Intent intent = new Intent(context, RecipeDetailsActivity.class);
+
+        // Pass the recipe ID and other data as an extra to the activity
+        intent.putExtra("recipeId", recipeId);
+        intent.putExtra("recipeName", recipeName);
+        intent.putExtra("imagePath", imagePath);
+        intent.putExtra("cookingTime", cookingTime);
+        intent.putExtra("servings", servings);
+        intent.putExtra("category", category);
+        intent.putExtra("ingredients", ingredients);
+        intent.putExtra("cookingMethod", cookingMethod);
+
+        // Start the RecipeDetailActivity
+        context.startActivity(intent);
+    }
 }

@@ -19,6 +19,6 @@ public class CategoryRegularFood extends AppCompatActivity {
         setContentView(view);
 
         ListView recipeListView = findViewById(R.id.recipeListView);
-        DatabaseUtils.loadRecipesByCategory("Hideg ételek", this, recipeListView);
+        DatabaseUtils.loadRecipesByCategory(R.string.category_regular_food, this, recipeListView);
     }
 }
