@@ -1,7 +1,7 @@
 # iSense
 iSense is a mobile application written in Java to help users organize their home inventory.
 
-Please note that, currently, the app's default language is Hungarian, it is also available in English, but the app is limited to <b>Android</b> users.
+Please note that currently, the app's default language is Hungarian, it is also available in English, but the app is limited to <b>Android</b> users.
 
 There's an APK available for installation on any Android device, allowing users to explore the app.
 This application is a personal hobby project aimed at learning the fundamentals of mobile development.
@@ -14,7 +14,7 @@ It does have some issues that need attention, as outlined below, but please feel
 - Add items from the inventory to the shopping list
 - Edit or remove items in shopping list page
 
-<h4>Things should/will be improved</h4>
+<h3>Things should/will be improved</h3>
 - The style and design accross the whole app
   - The app has been tested on two devices; however, there may be variations in the design on other devices, which need to be addressed.
   - The layout needs to be improve for UX point of view
