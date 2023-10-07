@@ -4,105 +4,208 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/dark">
+    android:layout_margin="15dp"
+    tools:context=".MainActivity">
 
     <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="76dp"
-        android:gravity="center"
+        android:id="@+id/food_category"
+        android:layout_width="333dp"
+        android:layout_height="79dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/cv_border"
+        android:clickable="true"
+        android:focusable="true"
         android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/category_sweets"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toBottomOf="@+id/textView4"
+        app:layout_constraintVertical_bias="1.0">
 
-        <Button
-            android:id="@+id/ct_1_btn"
-            style="@style/HomepageButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:text="@string/ct_btn_1" />
+        <ImageView
+            android:id="@+id/imageView_food"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_weight="0.5"
+            app:srcCompat="@drawable/food_icon" />
 
-        <Button
-            android:id="@+id/ct_2_btn"
-            style="@style/HomepageButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_marginEnd="30dp"
-            android:text="@string/ct_btn_6" />
+        <TextView
+            android:id="@+id/textView_food"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/ct_btn_1"
+            android:textColor="@color/dark"
+            android:textSize="25sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="22dp"
-        android:gravity="center"
+        android:id="@+id/category_sweets"
+        android:layout_width="333dp"
+        android:layout_height="79dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/cv_border"
+        android:clickable="true"
+        android:focusable="true"
         android:orientation="horizontal"
+        android:paddingEnd="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/category_fruits"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout3">
+        app:layout_constraintHorizontal_bias="0.51"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <Button
-            android:id="@+id/ct_5_btn"
-            style="@style/HomepageButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:text="@string/ct_btn_9"
-            tools:layout_editor_absoluteX="41dp"
-            tools:layout_editor_absoluteY="100dp" />
+        <ImageView
+            android:id="@+id/imageView_sweets"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_weight="0.5"
+            app:srcCompat="@drawable/sweets_icon" />
 
+        <TextView
+            android:id="@+id/textView_sweets"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/ct_btn_6"
+            android:textColor="@color/dark"
+            android:textSize="25sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout3"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="23dp"
-        android:gravity="center"
+        android:id="@+id/category_fruits"
+        android:layout_width="333dp"
+        android:layout_height="79dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/cv_border"
+        android:clickable="true"
+        android:focusable="true"
         android:orientation="horizontal"
+        android:paddingEnd="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/category_cooking"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent">
 
-        <Button
-            android:id="@+id/ct_3_btn"
-            style="@style/HomepageButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="20dp"
-            android:padding="10dp"
+        <ImageView
+            android:id="@+id/imageView_fruits"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_weight="0.8"
+            app:srcCompat="@drawable/fruits_icon" />
+
+        <TextView
+            android:id="@+id/textView_fruits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
             android:text="@string/ct_btn_7"
-            tools:layout_editor_absoluteX="41dp"
-            tools:layout_editor_absoluteY="100dp" />
-
-        <Button
-            android:id="@+id/ct_4_btn"
-            style="@style/HomepageButtonStyle"
-            android:layout_width="150dp"
-            android:layout_height="120dp"
-            android:layout_marginEnd="30dp"
-            android:text="@string/ct_btn_8"
-            tools:layout_editor_absoluteX="219dp"
-            tools:layout_editor_absoluteY="109dp" />
+            android:textColor="@color/dark"
+            android:textSize="25sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/linearLayout4"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="26dp"
-        android:gravity="center"
+        android:id="@+id/category_cooking"
+        android:layout_width="333dp"
+        android:layout_height="79dp"
+        android:layout_marginBottom="24dp"
+        android:background="@drawable/cv_border"
+        android:clickable="true"
+        android:focusable="true"
         android:orientation="horizontal"
+        android:paddingEnd="10sp"
+        app:layout_constraintBottom_toTopOf="@+id/category_spices"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView_cooking"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_weight="0.5"
+            app:srcCompat="@drawable/cooking_icon" />
+
+        <TextView
+            android:id="@+id/textView_cooking"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/ct_btn_8"
+            android:textColor="@color/dark"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/category_spices"
+        android:layout_width="333dp"
+        android:layout_height="79dp"
+        android:layout_marginBottom="104dp"
+        android:background="@drawable/cv_border"
+        android:clickable="true"
+        android:focusable="true"
+        android:orientation="horizontal"
+        android:paddingEnd="10sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/imageView_spices"
+            android:layout_width="2dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="10dp"
+            android:layout_weight="0.5"
+            app:srcCompat="@drawable/spices_icon" />
+
+        <TextView
+            android:id="@+id/textView_spices"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="@string/ct_btn_9"
+            android:textColor="@color/dark"
+            android:textSize="25sp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="@string/category_hint"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout2"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/add_new_item_button"
+        android:layout_width="47dp"
+        android:layout_height="44dp"
+        android:layout_marginBottom="16dp"
+        android:background="@drawable/baseline_add_circle_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/category_spices"
+        app:layout_constraintVertical_bias="1.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
