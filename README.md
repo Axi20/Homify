@@ -16,6 +16,7 @@ It does have some issues that need attention, as outlined below, but please feel
 - Edit or remove items in shopping list page
 
 <h3>Things should/will be improved</h3>
+
 - The style and design accross the whole app
   - The app has been tested on two devices; however, there may be variations in the design on other devices, which need to be addressed.
   - The layout needs to be improve for UX point of view
