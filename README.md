@@ -7,14 +7,14 @@ There's an APK available for installation on any Android device, allowing users 
 This application is a personal hobby project aimed at learning the fundamentals of mobile development.
 It does have some issues that need attention, as outlined below, but please feel free to give it a try.
 
-<h4>Main functions</h4>
+<h3>Main functions</h3>
 - Inventory with categories
 - Add items to the inventory
 - Add recipes, with image and categorize them
 - Add items from the inventory to the shopping list
 - Edit or remove items in shopping list page
 
-<h2>Things should/will be improved</h2>h2>
+<h4>Things should/will be improved</h4>
 - The style and design accross the whole app
   - The app has been tested on two devices; however, there may be variations in the design on other devices, which need to be addressed.
   - The layout needs to be improve for UX point of view
