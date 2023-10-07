@@ -8,6 +8,7 @@ This application is a personal hobby project aimed at learning the fundamentals 
 It does have some issues that need attention, as outlined below, but please feel free to give it a try.
 
 <h3>Main functions</h3>
+
 - Inventory with categories
 - Add items to the inventory
 - Add recipes, with image and categorize them
