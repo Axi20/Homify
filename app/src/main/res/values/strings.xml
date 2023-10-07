@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Homify</string>
+    <string name="app_name">iSense</string>
     <string name="ct_btn_1">Élelmiszer</string>
     <string name="ct_btn_2">Háztartás</string>
     <string name="ct_btn_3">Takarító szerek</string>
@@ -41,6 +41,15 @@
     <string name="homepage_inventory">Leltár</string>
     <string name="homepage_intro">Üdvözöllek!\nKérlek válassz menüpontot!</string>
     <string name="add_to_the_shopping_list">Bevásárló listához adás</string>
+
+    <string name="required">A mezők kitöltése kötelező!</string>
+    <string name="already_exist">Az elem már létezik az adatbázisban!</string>
+    <string name="item_added">Sikeres hozzáadás!</string>
+    <string name="item_deleted">Sikeresen törölve!</string>
+    <string name="item_updated">Sikeresen frissítve!</string>
+    <string name="error">Hiba történt, próbáld újra később</string>
+
+
 
     <string-array name="category_array">
         <item>Főétel</item>

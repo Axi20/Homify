@@ -43,7 +43,7 @@ public class DatabaseUtils {
         boolean itemExists = checkIfItemExists(db, table, itemName);
 
         if (itemExists) {
-            Toast.makeText(context, "Az elem már létezik az adatbázisban!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.already_exist, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -55,9 +55,9 @@ public class DatabaseUtils {
         long rowId = db.insert(table, null, values);
 
         if (rowId != -1) {
-            Toast.makeText(context, "Sikeres hozzáadás!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.item_added, Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(context, "Hiba történt!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.error, Toast.LENGTH_SHORT).show();
         }
         db.close();
     }
@@ -89,8 +89,8 @@ public class DatabaseUtils {
                 String[] deleteSelectionArgs = new String[]{String.valueOf(itemId)};
                 int rowsDeleted = db.delete(table, deleteSelection, deleteSelectionArgs);
 
-                Toast.makeText(context, (rowsDeleted > 0) ? "Sikeresen törölve!" :
-                        "Hiba történt!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, (rowsDeleted > 0) ? R.string.item_deleted :
+                        R.string.error, Toast.LENGTH_SHORT).show();
             }
             cursor.close();
             Activity activity = (Activity) context;
@@ -142,22 +142,22 @@ public class DatabaseUtils {
 
         // Create and configure the popup window
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Szerkesztés");
+        builder.setTitle(R.string.last_edit);
 
         LinearLayout layout = new LinearLayout(context);
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.setPadding(32, 32, 32, 32);
 
         EditText editItemName = new EditText(context);
-        editItemName.setHint("Név");
+        editItemName.setHint(R.string.title);
         layout.addView(editItemName);
 
         EditText editQuantity = new EditText(context);
-        editQuantity.setHint("Mennyiség");
+        editQuantity.setHint(R.string.quantity);
         layout.addView(editQuantity);
 
         EditText editUnit = new EditText(context);
-        editUnit.setHint("Mértékegység");
+        editUnit.setHint(R.string.unit);
         layout.addView(editUnit);
 
         // Create a CheckBox
@@ -206,7 +206,7 @@ public class DatabaseUtils {
 
 
 
-        builder.setPositiveButton("Mentés", (dialog, which) -> {
+        builder.setPositiveButton(R.string.save, (dialog, which) -> {
             ContentValues values = new ContentValues();
             int itemId = cursor.getInt(cursor.getColumnIndexOrThrow("_id"));
             values.put("_item_name", editItemName.getText().toString());
@@ -215,8 +215,8 @@ public class DatabaseUtils {
 
             int rowsUpdated = db.update(table, values, "_id = ?", new String[]{String.valueOf(itemId)});
 
-            Toast.makeText(context, (rowsUpdated > 0) ? "Elem frissítve!" :
-                    "Hiba történt!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, (rowsUpdated > 0) ? R.string.item_updated:
+                    R.string.error, Toast.LENGTH_SHORT).show();
 
             if (checkBox.isChecked()){
                 addToShoppingList(context, editItemName.getText().toString(), editQuantity.getText().toString(), editUnit.getText().toString(), "shopping");
@@ -228,7 +228,7 @@ public class DatabaseUtils {
             activity.recreate();
         });
 
-        builder.setNegativeButton("Mégsem", (dialog, which) -> {
+        builder.setNegativeButton(R.string.cancel, (dialog, which) -> {
             dialog.dismiss();
         });
 
@@ -335,7 +335,7 @@ public class DatabaseUtils {
         boolean itemExists = checkIfItemExists(db, table, itemName);
 
         if (itemExists) {
-            Toast.makeText(context, "Az elem már létezik az adatbázisban!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.already_exist, Toast.LENGTH_SHORT).show();
             return;
         }
 
@@ -356,9 +356,9 @@ public class DatabaseUtils {
         long rowId = db.insert(table, null, values);
 
         if (rowId != -1) {
-            Toast.makeText(context, "Sikeres hozzáadás!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.item_added, Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(context, "Hiba történt!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.error, Toast.LENGTH_SHORT).show();
         }
         db.close();
     }
@@ -418,27 +418,27 @@ public class DatabaseUtils {
     public static void showAddToShoppingListPopup(Context context, String table) {
         // Create and configure the popup window
         AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Hozzáadás");
+        builder.setTitle(R.string.add_new_item);
 
         LinearLayout layout = new LinearLayout(context);
         layout.setOrientation(LinearLayout.VERTICAL);
         layout.setPadding(32, 32, 32, 32);
 
         EditText editItemName = new EditText(context);
-        editItemName.setHint("Név");
+        editItemName.setHint(R.string.title);
         layout.addView(editItemName);
 
         EditText editQuantity = new EditText(context);
-        editQuantity.setHint("Mennyiség");
+        editQuantity.setHint(R.string.quantity);
         layout.addView(editQuantity);
 
         EditText editUnit = new EditText(context);
-        editUnit.setHint("Mértékegység");
+        editUnit.setHint(R.string.unit);
         layout.addView(editUnit);
 
         builder.setView(layout);
 
-        builder.setPositiveButton("Hozzáadás", (dialog, which) -> {
+        builder.setPositiveButton(R.string.add_item, (dialog, which) -> {
             String itemName = editItemName.getText().toString();
             String quantity = editQuantity.getText().toString();
             String unit = editUnit.getText().toString();
@@ -451,11 +451,11 @@ public class DatabaseUtils {
                 Activity activity = (Activity) context;
                 activity.recreate();
             } else {
-                Toast.makeText(context, "A mezők kitöltése kötelező", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, R.string.required, Toast.LENGTH_SHORT).show();
             }
         });
 
-        builder.setNegativeButton("Mégsem", (dialog, which) -> {
+        builder.setNegativeButton(R.string.cancel, (dialog, which) -> {
             dialog.dismiss();
         });
 
@@ -476,7 +476,7 @@ public class DatabaseUtils {
         boolean itemExists = checkIfItemExists(db, table, itemName);
 
         if (itemExists) {
-            Toast.makeText(context, "Az elem már létezik az adatbázisban!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.already_exist, Toast.LENGTH_SHORT).show();
             return;
         }
         else {
@@ -484,9 +484,9 @@ public class DatabaseUtils {
         }
 
         if (rowId != -1) {
-            Toast.makeText(context, "Sikeres hozzáadás!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.item_added, Toast.LENGTH_SHORT).show();
         } else {
-            Toast.makeText(context, "Hiba történt!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(context, R.string.error, Toast.LENGTH_SHORT).show();
         }
 
         db.close();

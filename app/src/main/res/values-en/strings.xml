@@ -1,0 +1,62 @@
+<resources>
+    <string name="app_name">iSense</string>
+    <string name="ct_btn_1">Food</string>
+    <string name="ct_btn_2">Household</string>
+    <string name="ct_btn_3">Cleaning</string>
+    <string name="ct_btn_4">Hygiene</string>
+    <string name="recipe_btn">Recipes</string>
+    <string name="settings_btn">Settings</string>
+    <string name="shopping_list_btn">Shopping list</string>
+    <string name="title">Name</string>
+    <string name="category">Category</string>
+    <string name="quantity">Quantity</string>
+    <string name="unit">Unit</string>
+    <string name="last_edit">Edit</string>
+    <string name="add_new_item">Add</string>
+    <string name="add_item">Add new item</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+
+    <string name="ct_btn_6">Sweets</string>
+    <string name="ct_btn_7">Fruits/Vegetables</string>
+    <string name="ct_btn_8">Cooking</string>
+    <string name="ct_btn_9">Spices</string>
+    <string name="category_hint">Category</string>
+    <string name="category_dessert">Dessert</string>
+    <string name="category_cooked_food">Cooked food</string>
+    <string name="category_regular_food">Sandwiches</string>
+    <string name="category_roast_food">Roast</string>
+    <string name="category_soup">Soup</string>
+    <string name="category_chicken_food">Chicken</string>
+    <string name="category_pork_food">Pork</string>
+    <string name="category_main_dishes">Main dishes</string>
+    <string name="add_recipe_title">Add new recipe</string>
+    <string name="add_recipe_name">Recipe name</string>
+    <string name="add_recipe_cook_time">Cooking time</string>
+    <string name="add_recipe_servings">Servings</string>
+    <string name="add_recipe_ingredients">Ingredients</string>
+    <string name="add_recipe_cooking">Cooking method</string>
+    <string name="food_with_chicken">Food with chicken</string>
+    <string name="food_with_pork">Food with pork</string>
+    <string name="homepage_inventory">Inventory</string>
+    <string name="homepage_intro">Welcome!\nWhere you want to go?</string>
+    <string name="add_to_the_shopping_list">Add to the shopping list</string>
+
+    <string name="required">All of the fields required!</string>
+    <string name="already_exist">The item is already exist in the database!</string>
+    <string name="item_added">Item added successfully!</string>
+    <string name="item_deleted">Item deleted successfully!</string>
+    <string name="item_updated">Item updated successfully!</string>
+    <string name="error">An error occurred, please try again later</string>
+
+    <string-array name="category_array">
+        <item>Main dishes</item>
+        <item>Soup</item>
+        <item>Dessert</item>
+        <item>Chicken</item>
+        <item>Pork</item>
+        <item>Sandwiches</item>
+        <item>Roast food</item>
+    </string-array>
+
+</resources>
