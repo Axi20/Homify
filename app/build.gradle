@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.home.homify'
+    namespace 'com.home.isense'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.home.homify"
+        applicationId "com.home.isense"
         minSdk 24
         targetSdk 33
         versionCode 1
